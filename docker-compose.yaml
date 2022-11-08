@@ -1,15 +1,28 @@
 version: '3.8'
 
 services:
-  tp02-container:
+  app:
 
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: .
+    
+    deploy:
+      replicas: 4
 
-    ports:
-      - 8090:8080
+    expose:
+      - PING_LISTEN_PORT
 
     environment:
-      - PORT=8080
+      PING_LISTEN_PORT: 8080
+
+  proxy:
+
+    image: nginx:latest
     
+    ports:
+      - 8080:80
+
+    depends_on: 
+      - app
+    
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
