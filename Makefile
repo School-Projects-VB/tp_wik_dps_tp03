@@ -4,7 +4,7 @@ build:
 start:
 	docker compose up
 
-stop:
+rm:
 	docker compose down
 
-.PHONY: build start stop
+.PHONY: build start rm
