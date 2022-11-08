@@ -1,11 +1,10 @@
 build:
 	docker build -t app -f Dockerfile .
 
-up:
+start:
 	docker compose up
 
-restart:
+stop:
 	docker compose down
-	docker compose up
 
-.PHONY: build up
+.PHONY: build start stop
