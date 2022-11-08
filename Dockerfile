@@ -1,4 +1,3 @@
-# docker build -t wik-dps-tp02-ts-multi -f multi-stage.dockerfile .
 FROM node:19-bullseye AS builder
 WORKDIR /app
 
