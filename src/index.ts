@@ -1,10 +1,12 @@
 import { createServer, IncomingMessage, ServerResponse } from "http"
+import os from "os"
 
 // Method used to handle incoming requests
 const requestListener = function (req: IncomingMessage, res: ServerResponse) {
   try {
     // Only send JSON if HTTP verb is GET and url is /ping
     if (req.method === "GET" && req.url === "/ping") {
+      console.log("test" + os.hostname());
       res.setHeader("Content-Type", "application/json")
       res.write(JSON.stringify(req.headers))
       res.end();
