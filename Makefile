@@ -2,7 +2,7 @@ build:
 	docker build -t app -f Dockerfile .
 
 start:
-	docker compose up
+	docker compose up --build
 
 rm:
 	docker compose down
